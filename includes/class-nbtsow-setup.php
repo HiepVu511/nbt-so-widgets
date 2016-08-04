@@ -58,6 +58,7 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 				'nbtsow-blog-posts-widget',
 				'nbtsow-image-widget',
 				'nbtsow-members-widget',
+				'nbtsow-grayscale-widget',
 			);
 
 			return $widgets;

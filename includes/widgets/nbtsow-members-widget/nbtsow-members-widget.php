@@ -22,7 +22,7 @@ class NBTSOW_Members_Widget extends SiteOrigin_Widget {
 					'label' => esc_html__('Members', 'nbtsow'),
 					'item_name' => esc_html__('Member', 'nbtsow'),
 					'item_label' => array(
-			            'selector'     => "[id*='member_name']",
+			            'selector'     => "[id*='name']",
 			            'update_event' => 'change',
 			            'value_method' => 'val',
 			        ),

@@ -359,36 +359,42 @@ $direction: top right bottom left;
 @mixin jw-column() {
     position: relative;
     min-height: 1px;
-    padding-left:  ($jw-gutter / 2);
-    padding-right: ($jw-gutter / 2);
 }
 
 @mixin jw-xs-column($columns, $gutter: $jw-gutter) {
-  float: left;
-  width: percentage(($columns / $jw-columns));
+    float: left;
+    width: percentage(($columns / $jw-columns));
+    padding-left:  ($gutter / 2);
+    padding-right:  ($gutter / 2);
 }
 
 
 // Generate the small columns
 @mixin jw-sm-column($columns, $gutter: $jw-gutter) {
-  @media (min-width: $jw-sm) {
-    float: left;
-    width: percentage(($columns / $jw-columns));
-  }
+    padding-left:  ($gutter / 2);
+    padding-right:  ($gutter / 2);
+    @media (min-width: $jw-sm) {
+        float: left;
+        width: percentage(($columns / $jw-columns));
+    }
 }
 
 // Generate the medium columns
 @mixin jw-md-column($columns, $gutter: $jw-gutter) {
-  @media (min-width: $jw-md) {
-    float: left;
-    width: percentage(($columns / $jw-columns));
-  }
+    padding-left:  ($gutter / 2);
+    padding-right:  ($gutter / 2);
+    @media (min-width: $jw-md) {
+        float: left;
+        width: percentage(($columns / $jw-columns));
+    }
 }
 
 // Generate the large columns
 @mixin jw-lg-column($columns, $gutter: $jw-gutter) {
-  @media (min-width: $jw-lg) {
-    float: left;
-    width: percentage(($columns / $jw-columns));
-  }
+    padding-left:  ($gutter / 2);
+    padding-right:  ($gutter / 2);
+    @media (min-width: $jw-lg) {
+        float: left;
+        width: percentage(($columns / $jw-columns));
+    }
 }
