@@ -59,6 +59,7 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 				'nbtsow-image-widget',
 				'nbtsow-members-widget',
 				'nbtsow-grayscale-widget',
+				'nbtsow-members-widget',
 			);
 
 			return $widgets;
