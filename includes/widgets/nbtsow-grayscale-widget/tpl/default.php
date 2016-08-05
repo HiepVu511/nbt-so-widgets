@@ -18,7 +18,7 @@
 		// if( !empty($alt) ) $attr['alt'] = $alt;
 	?>
 	<?php if(!empty($image['url'])) : ?><a href="<?php echo esc_url($url) ?>" <?php if($new_window) echo 'target="_blank"' ?>><?php endif; ?>
-	<?php echo wp_get_attachment_image($image['upload_image'], 'full', false, array('class' => 'grayscale')); ?>
+	<?php echo wp_get_attachment_image($image['upload_image'], 'full', false, array('class' => 'grayscale', 'id' => $image['id'])); ?>
 	<?php if(!empty($image['url'])) : ?></a><?php endif; ?>
 	<?php endforeach; ?>
 </div>
