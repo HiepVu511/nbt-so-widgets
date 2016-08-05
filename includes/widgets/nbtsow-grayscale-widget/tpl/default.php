@@ -13,12 +13,12 @@
 		//
 		// // Backward compability with WordPress before 4.4
 		// if( function_exists('wp_get_attachment_image_srcset') ) {
-		// 	$attr['srcset'] = wp_get_attachment_image_srcset($image['upload_image'], $image['size']);
+		// 	$attr['srcset'] = wp_get_attachment_image_srcset($image['upload_image'], 'full');
 		// }
 		// if( !empty($alt) ) $attr['alt'] = $alt;
 	?>
 	<?php if(!empty($image['url'])) : ?><a href="<?php echo esc_url($url) ?>" <?php if($new_window) echo 'target="_blank"' ?>><?php endif; ?>
-	<?php echo wp_get_attachment_image($image['upload_image'], $image['size']); ?>
+	<?php echo wp_get_attachment_image($image['upload_image'], 'full', false, array('class' => 'grayscale')); ?>
 	<?php if(!empty($image['url'])) : ?></a><?php endif; ?>
 	<?php endforeach; ?>
 </div>

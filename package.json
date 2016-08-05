@@ -18,12 +18,17 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
+    "gulp-iife": "^0.3.0",
+    "gulp-jshint": "^2.0.1",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-rtlcss": "^1.0.0",
     "gulp-sass": "^2.3.2",
-    "gulp-util": "^3.0.7"
-},
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.2"
+  },
   "homepage": "https://github.com/HiepVu511/nbt-so-widgets#readme"
 }

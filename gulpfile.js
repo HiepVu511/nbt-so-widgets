@@ -6,6 +6,10 @@ var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var gutil = require('gulp-util');
 var cssnano = require('gulp-cssnano');
+var concat = require('gulp-concat');
+var jshint = require('gulp-jshint');
+var uglify = require('gulp-uglify');
+var iife = require('gulp-iife');
 
 var onError = function (err) {
     console.log('An error occurred:', gutil.colors.magenta(err.message));
@@ -28,6 +32,17 @@ gulp.task('sass', function() {
     // .pipe(cssnano({zindex:false}))
     // .pipe(rename({ basename: 'rtl', suffix: '.min' }))
     // .pipe(gulp.dest('../'));
+});
+
+gulp.task('js', function() {
+    return gulp.src(['./assets/js/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(concat('app.js'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(iife())
+    .pipe(gulp.dest('./assets/'));
 });
 
 gulp.task('default', ['sass']);

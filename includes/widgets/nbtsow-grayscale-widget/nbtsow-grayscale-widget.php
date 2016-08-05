@@ -21,7 +21,7 @@ class NBTSOW_Grayscale_Widget extends SiteOrigin_Widget {
 					'label' => esc_html__('Images Collection', 'nbtsow'),
 					'item_name' => esc_html__('Images', 'nbtsow'),
 					'item_label' => array(
-						'selector' => "[id*='id']",
+						'selector' => "[id*='grayscale-id']",
 						'update_event' => 'change',
 			            'value_method' => 'val',
 					),
@@ -35,10 +35,10 @@ class NBTSOW_Grayscale_Widget extends SiteOrigin_Widget {
                             'type' => 'media',
                             'label' => __('Upload image', 'nbtsow')
                         ),
-						'size' => array(
-							'type' => 'image-size',
-							'label' => esc_html__('Image size', 'nbtsow'),
-						),
+						// 'size' => array(
+						// 	'type' => 'image-size',
+						// 	'label' => esc_html__('Image size', 'nbtsow'),
+						// ),
 						'alt' => array(
 							'type' => 'text',
 							'label' => esc_html__('Alt text', 'nbtsow'),
