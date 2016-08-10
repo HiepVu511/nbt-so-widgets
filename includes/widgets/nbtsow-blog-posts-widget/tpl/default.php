@@ -8,7 +8,10 @@ $blog_args = array(
 $blog_loop = new WP_Query($blog_args);
 if ( $blog_loop->have_posts() ) {
 	?>
-	<ul class="nbtsow-blog-posts clear">
+	<?php if(!empty($title)) {
+		echo '<h3 class="nbtsow-title">' . $title . '</h3>';
+	}?>
+	<ul class="nbtsow-blog-posts clear <?php if($style !== 'custom') { echo $style;} ?>">
 	<?php
 	while ($blog_loop->have_posts()): $blog_loop->the_post();
 	?>
@@ -20,22 +23,26 @@ if ( $blog_loop->have_posts() ) {
 					} ?>
 				</a>
 			</div>
+			<?php if($layout == 'with_date'):?>
 			<div class="nbtsow-blog-date">
 				<span><?php the_time('d'); ?></span>
 				<p><?php the_time('F'); ?></p>
 			</div>
+			<?php endif;?>
 			<div class="nbtsow-blog-details">
 				<h4 class="nbtsow-blog-title">
 					<a href="<?php the_permalink(); ?>">
 						<?php the_title(); ?>
 					</a>
 				</h4>
+				<?php if($layout == 'with_date'):?>
 				<p class="nbtsow-blog-meta">
 					<span class="nbtsow-blog-author">Post by <?php echo get_the_author(); ?></span>
 					<span class="nbtsow-blog-comment"><?php comments_number(); ?> Comment(s)</span>
 				</p>
+				<?php endif;?>
 				<p class="nbtsow-blog-excerpt">
-					<?php the_excerpt(); ?>
+					<?php echo esc_html(get_the_excerpt()); ?>
 				</p>
 			</div>
 		</li>

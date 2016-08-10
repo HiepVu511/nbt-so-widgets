@@ -16,6 +16,10 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 			),
 			array(),
 			array(
+				'title' => array(
+					'type' => 'text',
+					'label' => esc_html__('Widget title', 'nbtsow'),
+				),
 				'image' => array(
 					'type' => 'media',
 					'label' => esc_html__('Image file', 'nbtsow'),
@@ -45,6 +49,7 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 
 	function get_template_variables($instance, $args) {
 		return array(
+			'title' => $instance['title'],
 			'image' => $instance['image'],
 			'size' => $instance['size'],
 			'alt' => $instance['alt'],

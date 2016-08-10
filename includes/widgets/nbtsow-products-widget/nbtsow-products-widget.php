@@ -21,7 +21,6 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 					'type' => 'text',
 					'label' => esc_html__('Title', 'nbtsow'),
 				),
-
 				'quantity' => array(
 					'type' => 'slider',
 					'label' => esc_html__('Number of products to display', 'nbtsow'),
@@ -30,18 +29,35 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 					'max' => 8,
 					'integer' => true
 				),
+				'layout' => array(
+					'type' => 'select',
+					'label' => esc_html__('Select a layout', 'nbtsow'),
+					'default' => 'layout_1',
+					'options' => array(
+						'layout_1' => esc_html__( 'Products with price', 'nbtsow' ),
+						'layout_2' => esc_html__( 'Products with excerpt', 'nbtsow' ),
+					)
+				),
 			)
 		);
 	}
 
 	function get_template_variables($instance, $args) {
 		return array(
+			'title' => $instance['title'],
 			'quantity' => $instance['quantity'],
+			'layout' => $instance['layout']
 		);
 	}
 
 	function get_template_name($instance) {
-		return 'default';
+		$template = '';
+		if( $instance['layout'] == 'layout_1' ) {
+			$template = 'layout-1';
+		} else {
+			$template = 'layout-2';
+		}
+		return $template;
 	}
 
 	function get_style_name($instance) {

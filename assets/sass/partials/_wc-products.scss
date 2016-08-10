@@ -1,5 +1,5 @@
-#new-products {	
-	.home-products {
+#new-products {
+	.nbtsow-wcproducts.layout-1 {
 		.product {
 			@include jw-column();
 			@include bp(xs) {
@@ -53,6 +53,7 @@
 					padding: 8px 15px;
 					border-radius: 20px;
 					white-space: nowrap;
+					transition: all .4s;
 					a {
 						color: #fff;
 					}

@@ -12,14 +12,13 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 			add_filter( 'siteorigin_widgets_widget_folders', array($this, 'add_widgets') );
 			add_filter( 'siteorigin_panels_widget_dialog_tabs', array($this, 'add_widget_tabs'), 20 );
 			add_filter( 'siteorigin_panels_widgets', array($this, 'add_bundle_groups'), 11 );
-			add_filter( 'siteorigin_panels_row_style_fields', array($this, 'row_parallax_option') );
-			add_filter( 'siteorigin_panels_row_style_attributes', array($this, 'row_parallax_attribute'), 10, 3 );
+			add_filter( 'siteorigin_panels_row_style_fields', array($this, 'row_effect_option') );
+			add_filter( 'siteorigin_panels_row_style_attributes', array($this, 'row_effect_attribute'), 10, 3 );
 			add_filter( 'siteorigin_widgets_default_active', array($this, 'filter_default_widgets') );
 			// add_filter( 'siteorigin_panels_row_style_fields', array($this, 'row_margin_option') );
 			// add_filter( 'siteorigin_panels_row_style_attributes', array($this, 'row_margin_attributes'), 10, 4 );
 			// add_filter('siteorigin_panels_css_object', array($this, 'add_attributes_to_css_object'), 10, 3);
-
-			add_action( 'init', 'add_thumb_size' );
+			add_action( 'init', array($this, 'add_thumb_size') );
 		}
 
 		// Get all widget
@@ -59,31 +58,36 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 				'nbtsow-image-widget',
 				'nbtsow-members-widget',
 				'nbtsow-grayscale-widget',
-				'nbtsow-members-widget',
+				'nbtsow-icon-widget',
 			);
 
 			return $widgets;
 		}
 
 		// Add parallax option to row
-		function row_parallax_option($fields) {
-			$fields['parallax'] = array(
-				'name' => esc_html__('Parallax Effect', 'nbtsow'),
+		function row_effect_option($fields) {
+
+			$fields['img-hover'] = array(
+				'name' => esc_html__('Image Hover Effect', 'nbtsow'),
 				'type' => 'checkbox',
 				'group' => 'design',
-				'description' => esc_html__('Add parallax effect for image\'s background'),
+				'description' => esc_html__('Hover effect for images in this row', 'nbtsow'),
 				'priority' => 8,
 			);
+
 			return $fields;
-		}
+
+		}		
 
 		// Parallax attribute
-		function row_parallax_attribute($attributes, $args) {
-			if( !empty($args['parallax']) ) {
-				array_push($attributes['class'], 'parallax');
-			}
+		function row_effect_attribute($attributes, $args) {
 
+			if( !empty($args['img-hover']) ) {
+				array_push($attributes['class'], 'nbtsow-img-hover');
+			}
+			
 			return $attributes;
+
 		}
 
 		// Add Margin bottom in different screen size
@@ -153,8 +157,9 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 
 		// Add image size for widgets
 		function add_thumb_size() {
-			add_image_size( 'nbtsow-blog-thumb', 737, 400 ,array('center', 'center') );
-			add_image_size( 'nbtsow-product-thumb', 340, 340 ,array('center', 'center') );
+			add_image_size( 'nbtsow-blog-thumb', 737, 400, array('center', 'center') );
+			add_image_size( 'nbtsow-product-thumb-1', 340, 340, array('center', 'center') );
+			add_image_size( 'nbtsow-product-thumb-2', 60, 60, array('center', 'center') );
 		}
 	}
 }

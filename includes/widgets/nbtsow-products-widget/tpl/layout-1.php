@@ -7,7 +7,10 @@ $products_args = array(
 $products_loop = new WP_Query($products_args);
 if ( $products_loop->have_posts() ) {
 	?>
-	<ul class="home-products">
+	<?php if(!empty($title)) {
+		echo '<h3 class="nbtsow-title">'. $title .'</h3>';
+	}?>
+	<ul class="nbtsow-wcproducts layout-1">
 	<?php
 	while ($products_loop->have_posts()): $products_loop->the_post();
 	?>
@@ -17,7 +20,7 @@ if ( $products_loop->have_posts() ) {
 			?>
 			<div class="product-thumb">
 				<?php if (has_post_thumbnail()){
-					the_post_thumbnail('nbtsow-product-thumb');
+					the_post_thumbnail('nbtsow-product-thumb-1');
 				} ?>
 				<p class="product-button">
 					<a href="<?php the_permalink(); ?>">order now</a>
