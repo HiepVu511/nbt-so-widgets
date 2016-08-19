@@ -22,10 +22,10 @@ gulp.task('sass', function() {
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sass())
     .pipe(autoprefixer())
-    .pipe(gulp.dest('./assets/'));
-    // .pipe(cssnano({zindex:false}))
-    // .pipe(rename({ suffix: '.min' }))
-    // .pipe(gulp.dest('../'))
+    // .pipe(gulp.dest('./assets/'));
+    .pipe(cssnano({zindex:false}))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('./assets/'))
     // .pipe(rtlcss())
     // .pipe(rename({ basename: 'rtl' }))
     // .pipe(gulp.dest('../'))

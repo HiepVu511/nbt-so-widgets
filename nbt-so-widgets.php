@@ -85,7 +85,7 @@ if (!class_exists( 'NBT_SiteOrigin_Widgets' )) {
         }
 
 		public function load_frontend_scripts() {
-			wp_register_style('nbt-so-styles', NBTSOW_PLUGIN_URL . 'assets/nbt-so-style.css', array(), NBTSOW_VERSION);
+			wp_register_style('nbt-so-styles', NBTSOW_PLUGIN_URL . 'assets/nbt-so-style.min.css', array(), NBTSOW_VERSION);
             wp_enqueue_style('nbt-so-styles');
 
 			wp_register_script('nbt-so-scripts', NBTSOW_PLUGIN_URL . 'assets/app.min.js', array('jquery'), NBTSOW_VERSION, true);

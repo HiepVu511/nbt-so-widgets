@@ -57,7 +57,7 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 				'nbtsow-blog-posts-widget',
 				'nbtsow-image-widget',
 				'nbtsow-members-widget',
-				'nbtsow-grayscale-widget',
+				'nbtsow-collection-widget',
 				'nbtsow-icon-widget',
 			);
 
@@ -75,6 +75,14 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 				'priority' => 8,
 			);
 
+			$fields['parallax'] = array(
+				'name' => esc_html__('Parallax Effect', 'nbtsow'),
+				'type' => 'checkbox',
+				'group' => 'design',
+				'description' => esc_html__('Parallax effect for background image', 'nbtsow'),
+				'priority' => 9,
+			);
+
 			return $fields;
 
 		}		
@@ -84,6 +92,10 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 
 			if( !empty($args['img-hover']) ) {
 				array_push($attributes['class'], 'nbtsow-img-hover');
+			}
+
+			if( !empty($args['parallax']) ) {
+				array_push($attributes['class'], 'nbtsow-parallax');
 			}
 			
 			return $attributes;

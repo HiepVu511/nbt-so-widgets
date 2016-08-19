@@ -24,4 +24,7 @@ if( !empty($alt) ) $attr['alt'] = $alt;
 	<?php if(!empty($url)) : ?><a href="<?php echo esc_url($url) ?>" <?php if($new_window) echo 'target="_blank"' ?>><?php endif; ?>
 		<img <?php foreach($attr as $n => $v) echo $n.'="' . esc_attr($v) . '" ' ?>/>
 	<?php if(!empty($url)) : ?></a><?php endif; ?>
+	<?php if( ! empty($description)): ?>
+		<p class="image-description"><?php echo $description; ?></p>
+	<?php endif; ?>
 </div>

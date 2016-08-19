@@ -43,6 +43,10 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 					'default' => false,
 					'label' => esc_html__('Open in new window', 'nbtsow'),
 				),
+				'description' => array(
+					'type' => 'text',
+					'label' => esc_html__('Image description', 'nbtsow'),
+				),
 			)
 		);
 	}
@@ -55,6 +59,7 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 			'alt' => $instance['alt'],
 			'url' => $instance['url'],
 			'new_window' => $instance['new_window'],
+			'description' => $instanc['description']
 		);
 	}
 
