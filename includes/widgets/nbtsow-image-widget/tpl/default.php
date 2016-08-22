@@ -22,7 +22,7 @@ if( !empty($alt) ) $attr['alt'] = $alt;
 		echo '<h3 class="widget-title">' . $title .  '</h3>';
 	}?>
 	<?php if(!empty($url)) : ?><a href="<?php echo esc_url($url) ?>" <?php if($new_window) echo 'target="_blank"' ?>><?php endif; ?>
-		<img <?php foreach($attr as $n => $v) echo $n.'="' . esc_attr($v) . '" ' ?>/>
+		<img <?php foreach($attr as $n => $v) echo $n.'="' . esc_attr($v) . '" ' ?> <?php if($full_width) echo 'class="nbtsow-image-full"';?> />
 	<?php if(!empty($url)) : ?></a><?php endif; ?>
 	<?php if( ! empty($description)): ?>
 		<p class="image-description"><?php echo $description; ?></p>

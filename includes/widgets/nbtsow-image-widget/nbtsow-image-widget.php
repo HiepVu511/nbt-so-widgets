@@ -30,6 +30,12 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 					'type' => 'image-size',
 					'label' => esc_html__('Image size', 'nbtsow'),
 				),
+				'full_width' => array(
+					'type' => 'checkbox',
+					'default' => true,
+					'label' => esc_html__('Full width', 'nbtsow'),
+					'description' => esc_html__('Make image fit its container', 'nbtsow'),
+				),
 				'alt' => array(
 					'type' => 'text',
 					'label' => esc_html__('Alt text', 'nbtsow'),
@@ -44,7 +50,7 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 					'label' => esc_html__('Open in new window', 'nbtsow'),
 				),
 				'description' => array(
-					'type' => 'text',
+					'type' => 'textarea',
 					'label' => esc_html__('Image description', 'nbtsow'),
 				),
 			)
@@ -59,7 +65,8 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 			'alt' => $instance['alt'],
 			'url' => $instance['url'],
 			'new_window' => $instance['new_window'],
-			'description' => $instanc['description']
+			'description' => $instance['description'],
+			'full_width' => $instance['full_width'],
 		);
 	}
 

@@ -33,12 +33,24 @@ class NBTSOW_Icon_Widget extends SiteOrigin_Widget {
                     'fields' => array(
                         'icon' => array(
                             'type' => 'icon',
-                            'label' => __('Icon.', 'nbtsow'),
+                            'label' => __('Icon.', 'nbtsow')
                         ),
+						'icon_color' => array(
+							'type' => 'color',
+							'label' => __('Icon Color', 'nbtsow')
+						),
+						'icon_size' => array(
+							'type' => 'slider',
+							'label' => __('Icon Size', 'nbtsow'),
+							'min' => 1,
+							'max' => 64,
+							'integer' => true,
+							'default' => 24
+						),
 						'icon_text' => array(
 							'type' => 'text',
-							'label' => esc_html__('Text for icon section', 'nbtsow'),
-						),
+							'label' => __('Text for icon section', 'nbtsow'),
+						),						
                     )
                 ),
 			)
@@ -47,7 +59,7 @@ class NBTSOW_Icon_Widget extends SiteOrigin_Widget {
 
 	function get_template_variables($instance, $args) {
 		return array(
-			'title' => !empty($instance['title']) ? $instance['title'] : array(),
+			'title' => $instance['title'],
 			'icon_list' => !empty($instance['icon_list']) ? $instance['icon_list'] : array(),
 		);
 	}
