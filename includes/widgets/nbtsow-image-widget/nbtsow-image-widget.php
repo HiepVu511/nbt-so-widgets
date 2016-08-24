@@ -53,6 +53,11 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 					'type' => 'textarea',
 					'label' => esc_html__('Image description', 'nbtsow'),
 				),
+				'hover_effect' => array(
+					'type' => 'checkbox',
+					'default' => true,
+					'label' => esc_html__('Add hover effect', 'nbtsow'),
+				),
 			)
 		);
 	}
@@ -67,6 +72,7 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 			'new_window' => $instance['new_window'],
 			'description' => $instance['description'],
 			'full_width' => $instance['full_width'],
+			'hover_effect' => $instance['hover_effect'],
 		);
 	}
 

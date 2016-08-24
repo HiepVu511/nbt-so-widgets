@@ -17,7 +17,7 @@ if( function_exists('wp_get_attachment_image_srcset') ) {
 if( !empty($alt) ) $attr['alt'] = $alt;
 ?>
 
-<div class="nbtsow-image-widget">
+<div class="nbtsow-image-widget <?php if($hover_effect) echo 'nbtsow-image-widget-hover'?>">
 	<?php if(!empty($title)) {
 		echo '<h3 class="widget-title">' . $title .  '</h3>';
 	}?>

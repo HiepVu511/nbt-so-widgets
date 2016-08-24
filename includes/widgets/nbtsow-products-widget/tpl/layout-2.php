@@ -27,7 +27,14 @@ if ( $products_loop->have_posts() ) {
 				<h4 class="product-title">
 					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				</h4>
-				<p class="product-description"><?php echo esc_html(get_the_excerpt()); ?></p>
+				<p class="product-description">
+				<?php if($excerpt_length === 0) {
+					the_excerpt();
+				} else {
+					echo wp_trim_words( get_the_excerpt(), $excerpt_length, '...' );
+				}
+				 ?>
+				</p>
 			</div>
 		</li>
 	<?php

@@ -5,20 +5,20 @@
 		&:before {
 			content: "";
 			height: 1px;
-			width: 50px;
+			width: 67px;
 			position: absolute;
 			background: $c1;
 			bottom: 3px;
-			left: -65px;
+			left: -86px;
 		}
 		&:after {
 			content: "";
 			height: 1px;
-			width: 50px;
+			width: 67px;
 			position: absolute;
 			background: $c1;
 			bottom: 3px;
-			right: -65px;
+			right: -86px;
 		}
 	}
 }

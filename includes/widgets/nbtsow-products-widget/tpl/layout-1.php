@@ -33,7 +33,13 @@ if ( $products_loop->have_posts() ) {
 					</h4>
 					<span class="product-price"><?php echo $product->get_price_html(); ?></span>
 				</div>
-				<p class="product-description"><?php the_excerpt(); ?></p>
+				<p class="product-description">
+				<?php if(!$excerpt_length) {
+					the_excerpt();
+				} else {
+					echo wp_trim_words( get_the_excerpt(), $excerpt_length, '...' );
+				}?>
+				</p>
 			</div>
 		</li>
 	<?php

@@ -1,5 +1,5 @@
 .nbtsow-img-hover {	
-	&.panel-row-style, .nbtsow-blog-thumb, .nbtsow-image-widget, {
+	&.panel-row-style, .nbtsow-blog-thumb {
 		position: relative;
 		overflow: hidden;
 		&:before {
@@ -29,4 +29,30 @@
 .nbtsow-image-full {
 	width: 100%;
 	height: auto;
+}
+
+.nbtsow-image-widget-hover {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255,255,255,.1);
+		content: '';
+		transition: transform .8s;
+		transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-100%,0);
+		cursor: pointer;
+	}
+	&:hover {
+		&:before {
+			opacity: 1;
+			visibility: visible;
+			transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,150%,0);
+		}
+	}
 }
