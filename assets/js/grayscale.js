@@ -4,3 +4,12 @@ jQuery('.nbtsow-grayscale').hover(function() {
 }, function() {
     jQuery( this ).removeClass( 'disabled' );
 });
+
+jQuery(document).ready(function() {
+  jQuery('.nbtsow-mp').magnificPopup({
+      type:'image',
+      gallery: {
+          enabled:true
+      }
+    });
+});

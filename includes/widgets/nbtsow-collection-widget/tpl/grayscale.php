@@ -1,4 +1,7 @@
 <div class="nbtsow-grayscale-collection">
+	<?php if($title) {
+		echo '<h3 class="nbtsow-title">' . $title . '</h3>';
+	}?>
 	<?php foreach($images as $image): ?>
 
 		<?php

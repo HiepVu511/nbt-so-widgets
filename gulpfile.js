@@ -18,7 +18,7 @@ var onError = function (err) {
 };
 
 gulp.task('sass', function() {
-    return gulp.src('./assets/sass/*.scss')
+    return gulp.src(['./assets/sass/*.scss', './assets/sass/*/*.css'])
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sass())
     .pipe(autoprefixer())
@@ -35,13 +35,15 @@ gulp.task('sass', function() {
 });
 
 gulp.task('js', function() {
-    return gulp.src(['./assets/js/*.js'])
+    return gulp.src([
+        './assets/js/jquery.magnific-popup.min.js',
+        './assets/js/grayscale.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(concat('app.js'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
     .pipe(iife())
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))        
     .pipe(gulp.dest('./assets/'));
 });
 

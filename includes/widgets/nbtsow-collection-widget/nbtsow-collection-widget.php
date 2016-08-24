@@ -16,6 +16,10 @@ class NBTSOW_Collection_Widget extends SiteOrigin_Widget {
 			),
 			array(),
 			array(
+				'title' => array(
+					'type' => 'text',
+					'label' => esc_html__('Widget title', 'nbtsow'),
+				),
 				'collections_type' => array(
 					'type' => 'radio',
 					'label' => esc_html__('Collection Type', 'nbtsow'),
@@ -51,7 +55,13 @@ class NBTSOW_Collection_Widget extends SiteOrigin_Widget {
 						'alt' => array(
 							'type' => 'text',
 							'label' => esc_html__('Alt text', 'nbtsow'),
-						)
+						),
+						'full_width' => array(
+							'type' => 'checkbox',
+							'default' => true,
+							'label' => esc_html__('Full width', 'nbtsow'),
+							'description' => esc_html__('Make image fit its container', 'nbtsow'),
+						),
 					)
 				)
 			)
@@ -60,6 +70,7 @@ class NBTSOW_Collection_Widget extends SiteOrigin_Widget {
 
 	function get_template_variables($instance, $args) {
 		return array(
+			'title' => $instance['title'],
 			'collections_type' => $instance['collections_type'],
 			'images' => !empty($instance['images']) ? $instance['images'] : array(),
 		);

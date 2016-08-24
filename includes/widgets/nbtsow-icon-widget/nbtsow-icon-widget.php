@@ -50,7 +50,11 @@ class NBTSOW_Icon_Widget extends SiteOrigin_Widget {
 						'icon_text' => array(
 							'type' => 'text',
 							'label' => __('Text for icon section', 'nbtsow'),
-						),						
+						),
+						'icon_url' => array(
+							'type' => 'link',
+							'label' => __('Icon URL', 'nbtsow'),
+						),					
                     )
                 ),
 			)

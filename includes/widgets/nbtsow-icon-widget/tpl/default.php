@@ -8,19 +8,25 @@
         $icon_styles[] = 'color: ' . $icon_section['icon_color'];
     ?>
     <div class="nbtsow-icon-section">
-        <?php if($icon_section['icon']):
+        <?php if($icon_section['icon_url']): ?>
+        <a href="<?php echo esc_url($icon['icon_url']); ?>">
+        <?php endif; ?>
+            <?php if($icon_section['icon']):
 
-        echo siteorigin_widget_get_icon( $icon_section['icon'], $icon_styles );
+            echo siteorigin_widget_get_icon( $icon_section['icon'], $icon_styles );
 
-        endif;
+            endif;
 
-        if($icon_section['icon_text']): ?>
+            if($icon_section['icon_text']): ?>
 
-        <span>
-            <?php echo esc_attr($icon_section['icon_text']); ?>
-        </span>
-        
-        <?php endif ;?>
+            <span class="nbtsow-icon-text">
+                <?php echo esc_attr($icon_section['icon_text']); ?>
+            </span>
+
+            <?php endif ;?>
+        <?php if($icon_section['icon_url']): ?>
+        </a>
+        <?php endif; ?>
     </div>
     <?php endforeach; ?>
 
