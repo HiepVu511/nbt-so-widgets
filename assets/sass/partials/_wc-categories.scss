@@ -18,6 +18,8 @@
 					font-family: "FontAwesome";
 					position: absolute;
 					right: 15px;
+					color: #888;
+					transition: all .4s;
 				}
 				& > .active:after {
 					content: "\f068";
@@ -45,13 +47,17 @@
 			display: block;
 			border-bottom: 1px solid #f1f1f1;
 			&:hover {
-				color: $c1
+				color: $c1;
+				&:after {
+					color: $c1 !important
+				}
 			}
 		}
 		.li-count {
 			position: absolute;
 		    top: 10px;
 		    right: 12px;
+			color: #888;
 		}
 	}
 }
