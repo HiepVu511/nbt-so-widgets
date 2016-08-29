@@ -41,7 +41,6 @@ gulp.task('js', function() {
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(concat('app.js'))
-    .pipe(iife())
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))        
     .pipe(gulp.dest('./assets/'));

@@ -4,15 +4,18 @@
         <?php echo esc_html($title); ?>
     </h3>
     <?php endif;
-    $wc_categories = get_terms('product_cat', array(
-        'hide_empty' => 0
-    ));
-    if ( !empty($wc_categories) ):
-        echo '<ul class="nbtsow-wc-categories">';
-        foreach( $wc_categories as $wc_category ) {
-            echo 
-        }
-        echo '</ul>';
-    endif; ?>
+    $args = array(
+      'taxonomy'     => 'product_cat',
+      'hierarchical' => true,
+      'title_li'     => '',
+      'hide_empty'   => false,
+      'show_count'   => true,
+      'walker'       => new Walker_Accordion_Woocommerce()
+    );
+    ?>
+
+    <ul class="nbtsow-wc-categories">
+    <?php wp_list_categories( $args ); ?>
+    </ul>
 
 </div>

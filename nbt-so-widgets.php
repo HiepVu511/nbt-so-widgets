@@ -78,6 +78,7 @@ if (!class_exists( 'NBT_SiteOrigin_Widgets' )) {
 
 		private function includes() {
 			require_once NBTSOW_PLUGIN_DIR . 'includes/class-nbtsow-setup.php';
+			require_once NBTSOW_PLUGIN_DIR . 'includes/class-accordion-walker.php';
 		}
 
 		private function hooks() {
