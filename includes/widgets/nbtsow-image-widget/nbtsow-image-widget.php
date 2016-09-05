@@ -49,6 +49,11 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 					'default' => false,
 					'label' => esc_html__('Open in new window', 'nbtsow'),
 				),
+				'center_image' => array(
+					'type' => 'checkbox',
+					'default' => true,
+					'label' => esc_html__('Center position image', 'nbtsow'),
+				),
 				'description' => array(
 					'type' => 'textarea',
 					'label' => esc_html__('Image description', 'nbtsow'),
@@ -73,6 +78,7 @@ class NBTSOW_Image_Widget extends SiteOrigin_Widget {
 			'description' => $instance['description'],
 			'full_width' => $instance['full_width'],
 			'hover_effect' => $instance['hover_effect'],
+			'center_image' => $instance['center_image'],
 		);
 	}
 

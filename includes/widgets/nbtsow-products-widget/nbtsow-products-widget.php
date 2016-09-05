@@ -29,13 +29,47 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 					'max' => 8,
 					'integer' => true
 				),
+				'thumbnail_size' => array(
+					'type' => 'image-size',
+					'label' => esc_html__('Image size', 'nbtsow'),
+				),
+				// 'layout' => array(
+				// 	'type' => 'select',
+				// 	'label' => esc_html__('Select a layout', 'nbtsow'),
+				// 	'default' => 'layout_1',
+				// 	'options' => array(
+				// 		'layout_1' => esc_html__( 'Products with price', 'nbtsow' ),
+				// 		'layout_2' => esc_html__( 'Products without price', 'nbtsow' ),
+				// 		'layout_2' => esc_html__( 'Products without order button', 'nbtsow' ),
+				// 	)
+				// ),
 				'layout' => array(
+					'type' => 'section',
+					'label' => esc_html__('Choose layout', 'nbtsow'),
+					'fields' => array(
+						'layout_button' => array(
+							'type' => 'text',
+							'label' => esc_html__( 'Display Order button', 'nbtsow' )
+						),
+						'layout_price' => array(
+							'type' => 'checkbox',
+							'default' => true,
+							'label' => esc_html__('Display price?', 'nbtsow')
+						),
+						'layout_excerpt' => array(
+							'type' => 'checkbox',
+							'default' => true,
+							'label' => esc_html__('Display short description?', 'nbtsow')
+						),
+					),
+				),
+				'get_products' => array(
 					'type' => 'select',
-					'label' => esc_html__('Select a layout', 'nbtsow'),
-					'default' => 'layout_1',
+					'label' => esc_html__('Get products by', 'nbtsow'),					
+					'default' => 'latest',
 					'options' => array(
-						'layout_1' => esc_html__( 'Products with price', 'nbtsow' ),
-						'layout_2' => esc_html__( 'Products without price', 'nbtsow' ),
+						'latest' => esc_html__( 'Latest Products', 'nbtsow' ),
+						'related' => esc_html__( 'Related Products(only work on single product page)', 'nbtsow' ),
 					)
 				),
 				'trim_excerpt' => array(
@@ -72,18 +106,17 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 			'title' => $instance['title'],
 			'quantity' => $instance['quantity'],
 			'layout' => $instance['layout'],
-			'excerpt_length' => $instance['excerpt_length']
+			'excerpt_length' => $instance['excerpt_length'],
+			'get_products' => $instance['get_products'],
+			'thumbnail_size' => $instance['thumbnail_size'],
+			'product_price' => $instance['layout']['product_price'],
+			'product_excerpt' => $instance['layout']['product_excerpt'],
+			'product_button' => $instance['layout']['product_button']
 		);
 	}
 
 	function get_template_name($instance) {
-		$template = '';
-		if( $instance['layout'] == 'layout_1' ) {
-			$template = 'layout-1';
-		} else {
-			$template = 'layout-2';
-		}
-		return $template;
+		return 'default';
 	}
 
 	function get_style_name($instance) {

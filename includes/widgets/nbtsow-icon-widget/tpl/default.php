@@ -12,9 +12,9 @@
         <a href="<?php echo esc_url($icon['icon_url']); ?>">
         <?php endif; ?>
             <?php if($icon_section['icon']):
-
+            echo '<span class="icon-wrap">';
             echo siteorigin_widget_get_icon( $icon_section['icon'], $icon_styles );
-
+            echo '</span>';
             endif;
 
             if($icon_section['icon_text']): ?>

@@ -1,0 +1,44 @@
+.nbtsow-social-wrap {
+	border-bottom: 1px solid #d7d7d7;
+	padding: 10px 0 20px;
+	margin-bottom: 20px;
+    .nbtsow-title {
+        display: inline-block;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #444;
+        margin-right: 15px;
+    }
+    a {
+        color: #888;
+		i {
+			font-size: 17px;
+			border-radius: 50%;			    
+			margin-right: 10px;
+			transition: background .4s;			    
+		}
+		.fa-facebook {
+			@include bp(lg) {
+				padding: 9px 13px;
+			}
+		}
+		.fa-google-plus {
+			@include bp(lg) {
+				padding: 9px 10px;
+			}
+		}
+		.fa-twitter, .fa-pinterest {
+			@include bp(lg) {
+				padding: 9px 11px;
+			}
+		}
+		&:hover {
+			i {
+				@include bp(lg) {
+					background: $c1;
+					color: #fff;
+				}					
+			}
+		}
+    }
+}

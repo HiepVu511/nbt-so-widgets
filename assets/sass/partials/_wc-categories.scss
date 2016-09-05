@@ -1,5 +1,4 @@
-.nbtsow-wc-categories-wrap {
-	text-indent: 12px;
+.nbtsow-wc-categories-wrap {	
 	.nbtsow-title {
 		font-size: 18px;
 		background: $c1;
@@ -8,9 +7,11 @@
 	    line-height: 40px;
 	    margin-top: 0;
 	    margin-bottom: 0;
+		text-indent: 12px;
 	}
 	.nbtsow-wc-categories {
 		background: #f7f7f7;
+		padding-left: 12px;
 		& > .cat-item {
 			&.has-children {
 				& > a:after {
@@ -28,7 +29,7 @@
 					display: none;
 				}
 				& > .children {
-					text-indent: 24px;							
+					padding-left: 12px;						
 				}
 				&:not(:first-child) {
 					.children {
@@ -46,6 +47,7 @@
 			transition: all .4s;
 			display: block;
 			border-bottom: 1px solid #f1f1f1;
+			padding-right: 30px;
 			&:hover {
 				color: $c1;
 				&:after {

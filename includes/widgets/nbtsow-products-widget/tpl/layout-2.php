@@ -15,9 +15,6 @@ if ( $products_loop->have_posts() ) {
 	while ($products_loop->have_posts()): $products_loop->the_post();
 	?>
 		<li class="product clear">
-			<?php
-			$product = new WC_Product(get_the_ID());
-			?>
 			<div class="product-thumb">
 				<?php if (has_post_thumbnail()){
 					the_post_thumbnail('nbtsow-product-thumb-2');
