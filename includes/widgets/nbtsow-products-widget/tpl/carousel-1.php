@@ -30,7 +30,7 @@ if ( $products_loop->have_posts() ) {
 	<?php if(!empty($title)) {
 		echo '<h3 class="nbtsow-title">'. $title .'</h3>';
 	}?>
-	<ul class="nbtsow-wcproducts layout-1">
+	<ul class="nbtsow-wcproducts owl-carousel layout-1">
 	<?php
 	while ($products_loop->have_posts()): $products_loop->the_post();
 	?>

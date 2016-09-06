@@ -38,6 +38,42 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 					'label' => esc_html__('Choose layout', 'nbtsow'),
 					'hide' => false,
 					'fields' => array(
+						'layout_template' => array(
+							'type' => 'select',
+							'label' => esc_html__('Products template', 'nbtsow'),
+							'default' => 'normal',
+							'options' => array(
+								'normal' => esc_html__('Normal layout', 'nbtsow'),
+								'carousel' => esc_html__('Carousel layout', 'nbtsow')
+							),
+							'state_emitter' => array(
+								'callback' => 'select',
+								'args' => array( 'layout_template' )
+							),
+						),
+						'carousel_type' => array(
+							'type' => 'select',
+							'label' => esc_html__('Carousel type', 'nbtsow'),
+							'options' => array(
+								'next_one' => esc_html__( 'Next one by one product', 'nbtsow' ),
+								'next_all' => esc_html__( 'Next all products', 'nbtsow' )
+							),
+							'state_handler' => array(
+								'layout_template[carousel]' => array('show'),
+								'layout_template[normal]' => array('hide'),
+							)
+						),
+						'carousel_items' => array(
+							'type' => 'slider',
+							'default' => 4,
+							'min' => 1,
+							'max' => 6,
+							'integer' => true,
+							'state_handler' => array(
+								'layout_template[carousel]' => array('show'),
+								'layout_template[normal]' => array('hide'),
+							)
+						),
 						'layout_button' => array(
 							'type' => 'checkbox',
 							'default' => true,
@@ -102,12 +138,23 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 			'thumbnail_size' => $instance['thumbnail_size'],
 			'layout_button' => $instance['product_layout']['layout_button'],
 			'layout_excerpt' => $instance['product_layout']['layout_excerpt'],
-			'layout_price' => $instance['product_layout']['layout_price']
+			'layout_price' => $instance['product_layout']['layout_price'],
+			'layout_template' => $instance['product_layout']['layout_template'],
+			'carousel_type' => $instance['product_layout']['carousel_type'],
+			'carousel_items' => $instance['product_layout']['carousel_items'],
 		);
 	}
 
 	function get_template_name($instance) {
-		return 'default';
+		$template = '';
+		if( $instance['product_layout']['carousel_type'] == 'next_one' ) {
+			$template = 'carousel-1';
+		} elseif( $instance['product_layout']['carousel_type'] == 'next_all' ) {
+			$template = 'carousel-2';
+		} else {
+			$template = 'normal';
+		}
+		return $template;
 	}
 
 	function get_style_name($instance) {
