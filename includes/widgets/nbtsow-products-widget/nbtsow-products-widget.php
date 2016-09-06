@@ -32,23 +32,15 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 				'thumbnail_size' => array(
 					'type' => 'image-size',
 					'label' => esc_html__('Image size', 'nbtsow'),
-				),
-				// 'layout' => array(
-				// 	'type' => 'select',
-				// 	'label' => esc_html__('Select a layout', 'nbtsow'),
-				// 	'default' => 'layout_1',
-				// 	'options' => array(
-				// 		'layout_1' => esc_html__( 'Products with price', 'nbtsow' ),
-				// 		'layout_2' => esc_html__( 'Products without price', 'nbtsow' ),
-				// 		'layout_2' => esc_html__( 'Products without order button', 'nbtsow' ),
-				// 	)
-				// ),
-				'layout' => array(
+				),				
+				'product_layout' => array(
 					'type' => 'section',
 					'label' => esc_html__('Choose layout', 'nbtsow'),
+					'hide' => false,
 					'fields' => array(
 						'layout_button' => array(
-							'type' => 'text',
+							'type' => 'checkbox',
+							'default' => true,
 							'label' => esc_html__( 'Display Order button', 'nbtsow' )
 						),
 						'layout_price' => array(
@@ -105,13 +97,12 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 		return array(
 			'title' => $instance['title'],
 			'quantity' => $instance['quantity'],
-			'layout' => $instance['layout'],
 			'excerpt_length' => $instance['excerpt_length'],
 			'get_products' => $instance['get_products'],
 			'thumbnail_size' => $instance['thumbnail_size'],
-			'product_price' => $instance['layout']['product_price'],
-			'product_excerpt' => $instance['layout']['product_excerpt'],
-			'product_button' => $instance['layout']['product_button']
+			'layout_button' => $instance['product_layout']['layout_button'],
+			'layout_excerpt' => $instance['product_layout']['layout_excerpt'],
+			'layout_price' => $instance['product_layout']['layout_price']
 		);
 	}
 

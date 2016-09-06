@@ -4,7 +4,7 @@ $products_args = array(
 	'posts_per_page' => $quantity,
 );
 
-if($get_products) {
+if($get_products == 'related') {
 	$product_cats = wp_get_post_terms( get_the_ID(), 'product_cat' );
 	$cat_id_args = array();
 
@@ -38,26 +38,28 @@ if ( $products_loop->have_posts() ) {
 			<?php
 			$current_product = new WC_Product(get_the_ID());
 			?>
-			<div class="product-thumb">
-				<?php if (has_post_thumbnail()){
-					the_post_thumbnail($thumbnail_size);
-				} ?>
-				<?php if($product_button):?>
-					<p class="product-button">
-						<a href="<?php the_permalink(); ?>">order now</a>
-					</p>
-				<?php endif;?>
-			</div>
+			<a href="<?php the_permalink(); ?>">
+				<div class="product-thumb">
+					<?php if (has_post_thumbnail()){
+						the_post_thumbnail($thumbnail_size);
+					} ?>
+					<?php if($layout_button):?>
+						<p class="product-button">
+							<a href="<?php the_permalink(); ?>">order now</a>
+						</p>
+					<?php endif;?>
+				</div>
+			</a>
 			<div class="product-details">
 				<div class="product-meta">
 					<h4 class="product-title">
 						<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 					</h4>
-					<?php if($product_price): ?>
+					<?php if($layout_price): ?>
 						<span class="product-price"><?php echo $current_product->get_price_html(); ?></span>
 					<?php endif;?>
 				</div>
-				<?php if($product_excerpt): ?>
+				<?php if($layout_excerpt): ?>
 					<p class="product-description">
 					<?php if(!$excerpt_length) {
 						the_excerpt();
