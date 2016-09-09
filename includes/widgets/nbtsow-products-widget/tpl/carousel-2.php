@@ -27,10 +27,10 @@ if($get_products == 'related') {
 $products_loop = new WP_Query($products_args);
 if ( $products_loop->have_posts() ) {
 	?>
-	<?php if(!empty($title)) {
+	<?php if(!empty($title)) {        
 		echo '<h3 class="nbtsow-title">'. $title .'</h3>';
 	}?>
-	<ul class="nbtsow-wcproducts owl-carousel layout-1">
+	<ul class="nbtsow-wcproducts layout-1 <?php if( $products_loop->post_count > $carousel_items) echo 'owl-carousel';?>">
 	<?php
     $i = 0;
 	while ($products_loop->have_posts()): $products_loop->the_post();

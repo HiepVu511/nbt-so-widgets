@@ -1,6 +1,6 @@
 <div class="nbtsow-social-wrap">
 <?php global $post;
- if($title) {
+if($title) {
     echo '<h3 class="nbtsow-title">' . $title . '</h3>';
 }
 if($facebook_button) {
