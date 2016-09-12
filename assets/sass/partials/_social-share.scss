@@ -13,31 +13,61 @@
         color: #888;
 		i {
 			font-size: 17px;
-			border-radius: 50%;			    
-			margin-right: 10px;
+			border-radius: 50%;
+			@include bp(lg) {
+				margin-right: 10px;
+			}			    
+			@include bp(md) {
+				margin-right: 2px;
+			}
 			transition: background .4s;			    
 		}
 		.fa-facebook {
-			@include bp(lg) {
+			@include bp(xs) {
 				padding: 9px 13px;
 			}
+			@include bp(sm) {
+				padding: 9px 13px;
+			}
+			@include bp(md) {
+				padding: 7px 11px;
+			}
+			@include bp(lg) {
+				padding: 9px 13px;
+			}		
 		}
 		.fa-google-plus {
-			@include bp(lg) {
+			@include bp(xs) {
 				padding: 9px 10px;
 			}
+			@include bp(sm) {
+				padding: 9px 10px;
+			}
+			@include bp(md) {
+				padding: 7px 8px;
+			}
+			@include bp(lg) {
+				padding: 9px 10px;
+			}			
 		}
 		.fa-twitter, .fa-pinterest {
-			@include bp(lg) {
+			@include bp(xs) {
 				padding: 9px 11px;
 			}
+			@include bp(sm) {
+				padding: 9px 11px;
+			}
+			@include bp(md) {
+				padding: 7px 9px;
+			}
+			@include bp(lg) {
+				padding: 9px 11px;
+			}			
 		}
 		&:hover {
 			i {
-				@include bp(lg) {
-					background: $c1;
-					color: #fff;
-				}					
+				background: $c1;
+				color: #fff;
 			}
 		}
     }
