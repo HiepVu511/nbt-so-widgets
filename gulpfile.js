@@ -46,4 +46,4 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./assets/'));
 });
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'js']);
