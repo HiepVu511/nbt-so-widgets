@@ -1,4 +1,7 @@
-<div class="nbtsow-wc-categories-wrap">
+<?php
+$class =  ($style == 'accordion') ? 'category-accordion' : 'category-normal';
+?>
+<div class="nbtsow-wc-categories-wrap <?php echo $class; ?>">
     <?php if ($title): ?>
     <h3 class="nbtsow-title">
         <?php echo esc_html($title); ?>
@@ -10,8 +13,10 @@
       'title_li'     => '',
       'hide_empty'   => false,
       'show_count'   => true,
-      'walker'       => new Walker_Accordion_Woocommerce()
     );
+    if($style == 'accordion') {
+        $args['walker'] = new Walker_Accordion_Woocommerce();
+    }
     ?>
 
     <ul class="nbtsow-wc-categories">

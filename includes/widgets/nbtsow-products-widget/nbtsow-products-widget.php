@@ -89,6 +89,11 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 							'default' => true,
 							'label' => esc_html__('Display short description?', 'nbtsow')
 						),
+						'layout_readmore_link' => array(
+							'type' => 'checkbox',
+							'default' => false,
+							'label' => esc_html__('Display Read more link?', 'nbtsow')
+						)
 					),
 				),
 				'get_products' => array(
@@ -139,6 +144,7 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 			'layout_button' => $instance['product_layout']['layout_button'],
 			'layout_excerpt' => $instance['product_layout']['layout_excerpt'],
 			'layout_price' => $instance['product_layout']['layout_price'],
+			'layout_readmore_link' => $instance['product_layout']['layout_readmore_link'],
 			'layout_template' => $instance['product_layout']['layout_template'],
 			'carousel_type' => $instance['product_layout']['carousel_type'],
 			'carousel_items' => $instance['product_layout']['carousel_items'],
@@ -147,9 +153,9 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 
 	function get_template_name($instance) {
 		$template = '';
-		if( $instance['product_layout']['carousel_type'] == 'next_one' ) {
+		if( $instance['layout_template'] == 'carousel' && $instance['product_layout']['carousel_type'] == 'next_one' ) {
 			$template = 'carousel-1';
-		} elseif( $instance['product_layout']['carousel_type'] == 'next_all' ) {
+		} elseif( $instance['layout_template'] == 'carousel' && $instance['product_layout']['carousel_type'] == 'next_all' ) {
 			$template = 'carousel-2';
 		} else {
 			$template = 'normal';

@@ -38,8 +38,9 @@ if ( $products_loop->have_posts() ) {
 			<?php
 			$current_product = new WC_Product(get_the_ID());
 			?>
-			<a href="<?php the_permalink(); ?>">
-				<div class="product-thumb">
+			
+			<div class="product-thumb">
+				<a href="<?php the_permalink(); ?>">
 					<?php if (has_post_thumbnail()){
 						the_post_thumbnail($thumbnail_size);
 					} ?>
@@ -48,8 +49,9 @@ if ( $products_loop->have_posts() ) {
 							<a href="<?php the_permalink(); ?>">order now</a>
 						</p>
 					<?php endif;?>
-				</div>
-			</a>
+				</a>
+			</div>
+			
 			<div class="product-details">
 				<div class="product-meta">
 					<h4 class="product-title">
@@ -67,6 +69,9 @@ if ( $products_loop->have_posts() ) {
 						echo wp_trim_words( get_the_excerpt(), $excerpt_length, '...' );
 					}?>
 					</p>
+				<?php endif;?>
+				<?php if($layout_readmore_link): ?>
+					<a href="<?php the_permalink(); ?>">Read more<i class="fa fa-chevron-right"></i></a>
 				<?php endif;?>
 			</div>
 		</li>

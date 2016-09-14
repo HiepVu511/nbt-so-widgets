@@ -42,7 +42,11 @@ if ( $blog_loop->have_posts() ) {
 				</p>
 				<?php endif;?>
 				<p class="nbtsow-blog-excerpt">
-					<?php echo esc_html(get_the_excerpt()); ?>
+					<?php if($excerpt_length !== 0) {
+						echo esc_html(wp_trim_words( get_the_excerpt(), $excerpt_length, '...' ));
+					} else {
+						esc_html_e(get_the_excerpt());
+					}?>				
 				</p>
 			</div>
 		</li>

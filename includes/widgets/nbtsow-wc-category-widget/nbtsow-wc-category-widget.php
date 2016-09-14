@@ -19,6 +19,15 @@ class NBTSOW_WC_Category_Widget extends SiteOrigin_Widget {
                 'title' => array(
                     'type' => 'text',
                     'label' => esc_html__('Widget title', 'nbtsow'),
+                ),
+                'style' => array(
+                    'type' => 'select',
+                    'label' => esc_html__('Style type', 'nbtsow'),
+                    'default' => 'accordion',
+                    'options' => array(
+                        'accordion' => esc_html__( 'Accordion style', 'nbtsow' ),
+                        'normal' => esc_html__( 'Normal style', 'nbtsow' )
+                    ),
                 )
             )
         );
@@ -26,7 +35,8 @@ class NBTSOW_WC_Category_Widget extends SiteOrigin_Widget {
 
     function get_template_variables($instance, $args) {
         return array(
-            'title' => $instance['title']
+            'title' => $instance['title'],
+            'style' => $instance['style'],
         );
     }
 
