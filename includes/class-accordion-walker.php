@@ -23,6 +23,7 @@ class Walker_Accordion_Woocommerce extends Walker_Category {
             $termchildren = get_term_children( $category->term_id, $category->taxonomy );
             if(count($termchildren)>0){
                 $class .=  ' has-children';
+                $link .= '<i class="fa fa-plus"></i>';
             }
 
             if ( !empty($current_category) ) {

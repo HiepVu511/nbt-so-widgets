@@ -15,28 +15,20 @@
 			padding-left: 12px;
 			& > .cat-item {
 				&.has-children {
-					& > a:after {
-						content: "\f067";
-						font-family: "FontAwesome";
+					& > .fa {
 						position: absolute;
 						right: 15px;
 						color: #888;
 						transition: all .4s;
-					}
-					& > .active:after {
-						content: "\f068";
+						top: 15px;
 					}
 					& > .li-count {
 						display: none;
 					}
 					& > .children {
-						padding-left: 12px;						
-					}
-					&:not(:first-child) {
-						.children {
-							display: none;
-						}
-					}
+						padding-left: 12px;	
+						display: none;					
+					}					
 				}			
 			}
 			.cat-item {

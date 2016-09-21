@@ -60,7 +60,8 @@ if (!class_exists( 'NBTSOW_Setup' )) {
 				'nbtsow-collection-widget',
 				'nbtsow-icon-widget',
 				'nbtsow-wc-category-widget',
-				'nbtsow-social-share-widget'
+				'nbtsow-social-share-widget',
+				'nbtsow-faq-widget'
 			);
 
 			return $widgets;

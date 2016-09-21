@@ -1,0 +1,31 @@
+.nbtsow-faqs {
+	.nbtsow-faqs-question {
+		padding-left: 15px;
+		padding-right: 15px;
+		background: #666;
+		color: #fff;
+		font-size: 16px;
+		position: relative;
+		line-height: 40px;
+		transition: all .4s;
+		margin-bottom: 20px;
+		margin-top: 0;
+		&:after {
+			content: '\e836';
+			font-family: 'fontello';
+			position: absolute;
+			right: 15px;
+		}
+		&.ui-state-active {
+			background: $c1;
+			&:after {
+				content: '\e835';
+				font-family: 'fontello';
+			}				
+		}
+		& ~ div {
+			margin-top: 30px;
+			margin-bottom: 20px;
+		}
+	}
+}

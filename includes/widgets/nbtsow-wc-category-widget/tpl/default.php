@@ -7,7 +7,7 @@ $class =  ($style == 'accordion') ? 'category-accordion' : 'category-normal';
         <?php echo esc_html($title); ?>
     </h3>
     <?php endif;
-    $args = array(
+    $widget_arg = array(
       'taxonomy'     => 'product_cat',
       'hierarchical' => true,
       'title_li'     => '',
@@ -15,12 +15,12 @@ $class =  ($style == 'accordion') ? 'category-accordion' : 'category-normal';
       'show_count'   => true,
     );
     if($style == 'accordion') {
-        $args['walker'] = new Walker_Accordion_Woocommerce();
+        $widget_arg['walker'] = new Walker_Accordion_Woocommerce();
     }
     ?>
 
     <ul class="nbtsow-wc-categories">
-    <?php wp_list_categories( $args ); ?>
+    <?php wp_list_categories( $widget_arg ); ?>
     </ul>
 
 </div>

@@ -153,9 +153,9 @@ class NBTSOW_Products_Widget extends SiteOrigin_Widget {
 
 	function get_template_name($instance) {
 		$template = '';
-		if( $instance['layout_template'] == 'carousel' && $instance['product_layout']['carousel_type'] == 'next_one' ) {
+		if( $instance['product_layout']['layout_template'] == 'carousel' && $instance['product_layout']['carousel_type'] == 'next_one' ) {
 			$template = 'carousel-1';
-		} elseif( $instance['layout_template'] == 'carousel' && $instance['product_layout']['carousel_type'] == 'next_all' ) {
+		} elseif ( $instance['product_layout']['layout_template'] == 'carousel' && $instance['product_layout']['carousel_type'] == 'next_all' ) {
 			$template = 'carousel-2';
 		} else {
 			$template = 'normal';

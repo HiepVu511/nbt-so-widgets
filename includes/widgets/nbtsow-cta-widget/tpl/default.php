@@ -12,7 +12,12 @@ if( !empty($src) ) {
 
 // Backward compability with WordPress before 4.4
 if( function_exists('wp_get_attachment_image_srcset') ) {
-	$attr['srcset'] = wp_get_attachment_image_srcset($upload_image, $size);
+	if($upload_img_srcset = wp_get_attachment_image_srcset($upload_image, $size)) {
+		$attr['srcset'] = $upload_img_srcset;
+		if($img_sizes = wp_get_attachment_image_sizes($upload_image, $size)) {
+			$attr['sizes'] = $img_sizes;
+		}
+	}
 }
 if( !empty($alt) ) $attr['alt'] = $alt;
 ?>
@@ -23,7 +28,7 @@ if( !empty($alt) ) $attr['alt'] = $alt;
 		switch( $item ) {
 			case 'image':
 				if( !empty($src) ): ?>
-					<img <?php foreach($attr as $k => $v) echo $k .'="' . esc_attr($v) . '"'?> />
+					<img <?php foreach($attr as $k => $v) echo $k .'="' . esc_attr($v) . '" '?> />
 				<?php endif;
 				break;
 			case 'headlines':

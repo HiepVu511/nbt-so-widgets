@@ -20,7 +20,7 @@
 			padding-top: 15px;
 			padding-bottom: 15px;
 			margin-bottom: 30px;
-			@include bp(lg) {
+			@include bp(sm) {
 				&:before {
 					position: absolute;
 					z-index: -1;
@@ -58,7 +58,7 @@
 			    transform: translate(-50%,0);
 			    transition: all 0.4s;
 			    min-width: 200px;
-			    @include bp(lg)  {
+			    @include bp(sm)  {
 			    	opacity: 0;
 			    	visibility: hidden;
 			    }
@@ -73,14 +73,16 @@
 			    		background: $c1;
 				    	color: #fff
 			    	}
-			    	@include bp(lg) {
+					background: $c1;
+					color: #fff;
+					@include bp(lg) {
 						background: #fff;
-				    	color: #7d7d7d;
-				    	&:hover {
-					    	background: $c1;
-					    	color: #fff
-					    }
-			    	}
+						color: #7d7d7d;
+						&:hover {
+							background: $c1;
+							color: #fff
+						}
+					}
 				    transition: all .4s;
 				    &.icon-facebook {
 						padding: 7px 9px;
@@ -96,7 +98,7 @@
 			    }
 			}
 			&:hover {
-				@include bp(lg) {
+				@include bp(sm) {
 					&:before {
 						transform: none;
 						z-index: 0;

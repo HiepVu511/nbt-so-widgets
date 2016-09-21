@@ -22,9 +22,8 @@
 		    });
 
 			// Accordion Woocommerce Menu
-			jQuery('.nbtsow-wc-categories > .cat-item').first().find('a').addClass('active');
-			jQuery('.nbtsow-wc-categories > .cat-item > a').on('click', function(e){
-				e.preventDefault();
+			// jQuery('.nbtsow-wc-categories > .cat-item').first().find('a').addClass('active');
+			jQuery('.nbtsow-wc-categories > .has-children > .fa').on('click', function(){
 
 				jQuery('.nbtsow-wc-categories > .cat-item > a').removeClass('active');
 				//slide up all the link lists
@@ -35,6 +34,24 @@
 				  jQuery(this).addClass('active');
 				}
 			});
+
+			jQuery( '.nbtsow-faqs' ).accordion({
+				event: 'mouseup',
+			});
+			
+			// jQuery('.nbtsow-faqs').find('.nbtsow-faqs-question').first().addClass('active');
+			// jQuery('.nbtsow-faqs > .nbtsow-faqs-question').on('click', function(e){
+			// 	e.preventDefault();
+
+			// 	jQuery('.nbtsow-faqs > .nbtsow-faqs-question').removeClass('active');
+			// 	//slide up all the link lists
+			// 	jQuery('.nbtsow-faqs > .nbtsow-faqs-answer').slideUp();
+			// 	if(!jQuery(this).siblings('.nbtsow-faqs-answer').is(':visible'))
+			// 	{
+			// 	  jQuery(this).siblings('.nbtsow-faqs-answer').slideDown();
+			// 	  jQuery(this).addClass('active');
+			// 	}
+			// });
 	    });
 	});
 

@@ -40,16 +40,14 @@ if ( $products_loop->have_posts() ) {
 			?>
 			
 			<div class="product-thumb">
-				<a href="<?php the_permalink(); ?>">
-					<?php if (has_post_thumbnail()){
-						the_post_thumbnail($thumbnail_size);
-					} ?>
-					<?php if($layout_button):?>
-						<p class="product-button">
-							<a href="<?php the_permalink(); ?>">order now</a>
-						</p>
-					<?php endif;?>
-				</a>
+				<?php if (has_post_thumbnail()){
+					the_post_thumbnail($thumbnail_size);
+				} ?>
+				<?php if($layout_button):?>
+					<p class="product-button">
+						<a href="<?php the_permalink(); ?>">order now</a>
+					</p>
+				<?php endif;?>
 			</div>
 			
 			<div class="product-details">

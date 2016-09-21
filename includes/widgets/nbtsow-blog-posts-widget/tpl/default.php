@@ -37,8 +37,8 @@ if ( $blog_loop->have_posts() ) {
 				</h4>
 				<?php if($layout == 'with_date'):?>
 				<p class="nbtsow-blog-meta">
-					<span class="nbtsow-blog-author">Post by <?php echo get_the_author(); ?></span>
-					<span class="nbtsow-blog-comment"><?php comments_number(); ?> Comment(s)</span>
+					<span class="nbtsow-blog-author">Post by <?php echo get_the_author(); ?> / </span>
+					<span class="nbtsow-blog-comment"><?php comments_number(); ?></span>
 				</p>
 				<?php endif;?>
 				<p class="nbtsow-blog-excerpt">
