@@ -18,10 +18,13 @@ if ( $blog_loop->have_posts() ) {
 		<li class="nbtsow-blog-post">
 			<div class="nbtsow-blog-thumb">
 				<a href="<?php the_permalink(); ?>">
-					<?php if (has_post_thumbnail()) {
-						the_post_thumbnail('nbtsow-blog-thumb');
-					} ?>
-				</a>
+					<div class="blog-thumb-inner">											
+						<i class="fa fa-link"></i>
+						<?php if (has_post_thumbnail()) {
+							the_post_thumbnail('nbtsow-blog-thumb');
+						} ?>										
+					</div>
+				</a>	
 			</div>
 			<?php if($layout == 'with_date'):?>
 			<div class="nbtsow-blog-date">

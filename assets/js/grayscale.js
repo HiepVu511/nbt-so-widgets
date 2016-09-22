@@ -7,11 +7,11 @@
 
 	    jQuery(document).ready(function() {
 	    	// Grayscale hover effect
-			jQuery('.nbtsow-grayscale').hover(function() {
-			    jQuery(this).addClass('disabled');
-			}, function() {
-			    jQuery(this).removeClass('disabled');
-			});
+			// jQuery('.nbtsow-grayscale').hover(function() {
+			//     jQuery(this).addClass('disabled');
+			// }, function() {
+			//     jQuery(this).removeClass('disabled');
+			// });
 
 			// Initialize MagnificPopup class
   			jQuery('.nbtsow-mp').magnificPopup({
@@ -38,20 +38,25 @@
 			jQuery( '.nbtsow-faqs' ).accordion({
 				event: 'mouseup',
 			});
-			
-			// jQuery('.nbtsow-faqs').find('.nbtsow-faqs-question').first().addClass('active');
-			// jQuery('.nbtsow-faqs > .nbtsow-faqs-question').on('click', function(e){
-			// 	e.preventDefault();
 
-			// 	jQuery('.nbtsow-faqs > .nbtsow-faqs-question').removeClass('active');
-			// 	//slide up all the link lists
-			// 	jQuery('.nbtsow-faqs > .nbtsow-faqs-answer').slideUp();
-			// 	if(!jQuery(this).siblings('.nbtsow-faqs-answer').is(':visible'))
-			// 	{
-			// 	  jQuery(this).siblings('.nbtsow-faqs-answer').slideDown();
-			// 	  jQuery(this).addClass('active');
-			// 	}
-			// });
+			function trustView(elem){
+				if( jQuery(elem).length ) {
+					var bottomOfObject = jQuery(elem).offset().top;
+					var bottomOfWindow = jQuery(window).scrollTop() + jQuery(window).height();
+	        		if(bottomOfWindow > bottomOfObject){
+						return true;
+					}
+	        	}
+			}						
+			function addClassGrayScale(addClass, elem){
+				if (trustView(elem) === true) {
+					jQuery(addClass).addClass('disabled');
+				}
+			}
+			jQuery(window).on('scroll', function() {
+				addClassGrayScale('.nbtsow-grayscale-collection .nbtsow-grayscale', '.nbtsow-grayscale-collection .nbtsow-grayscale');
+			});
+
 	    });
 	});
 
